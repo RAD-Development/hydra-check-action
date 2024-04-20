@@ -9,6 +9,7 @@ on:
       - main
   schedule:
     - cron: '31 7 * * 3'
+  merge_group:
 
 permissions:
   actions: read
