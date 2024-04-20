@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Hydra CI Health Check'
+description: 'Checks all builds for a Hydra evaluation'
+author: 'RAD-Development'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,15 +9,12 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  evaluation-name:
+    description: 'Evaluation to be checked. Tip: can be a PR (github.event.number) or branch (github.ref_name)'
     required: true
-    default: '1000'
-
-# Define your outputs here.
-outputs:
-  time:
-    description: 'Your output description here'
+  hydra-url:
+    description: 'Base URL for Hydra API'
+    required: true
 
 runs:
   using: node20
