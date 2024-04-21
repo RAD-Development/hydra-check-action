@@ -10,7 +10,9 @@ branding:
 # Define your inputs here.
 inputs:
   evaluation-name:
-    description: 'Evaluation to be checked. Tip: can be a PR (github.event.number) or branch (github.ref_name)'
+    description:
+      'Evaluation to be checked. Tip: can be a PR (github.event.number) or
+      branch (github.ref_name)'
     required: true
   hydra-url:
     description: 'Base URL for Hydra API'
