@@ -1,36 +1,32 @@
 {
-  description = "example-node-js-flake";
+  description = "My flake with dream2nix packages";
 
   inputs = {
-    flake-utils.url = "github:numtide/flake-utils";
+    dream2nix.url = "github:nix-community/dream2nix";
+    nixpkgs.follows = "dream2nix/nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-        };
-
-        buildNodeJs = pkgs.callPackage "${<nixpkgs>}/pkgs/development/web/nodejs/nodejs.nix" {
-          python = pkgs.python3;
-        };
-
-        nodejs = buildNodeJs {
-          enableNpm = true;
-          version = "20.5.1";
-          sha256 = "sha256-Q5xxqi84woYWV7+lOOmRkaVxJYBmy/1FSFhgScgTQZA=";
-        };
-      in rec {
-        flakedPkgs = pkgs;
-
-        # enables use of `nix shell`
-        devShell = pkgs.mkShell {
-          # add things you want in your shell here
-          buildInputs = with pkgs; [
-            nodejs
-          ];
-        };
-      }
-    );
+  outputs = inputs @ {
+    self,
+    dream2nix,
+    nixpkgs,
+    ...
+  }: let
+    system = "x86_64-linux";
+  in {
+    # All packages defined in ./packages/<name> are automatically added to the flake outputs
+    # e.g., 'packages/hello/default.nix' becomes '.#packages.hello'
+    packages.${system}.default = dream2nix.lib.evalModules {
+      packageSets.nixpkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages.${system};
+      modules = [
+        ./default.nix
+        {
+          paths.projectRoot = ./.;
+          # can be changed to ".git" or "flake.nix" to get rid of .project-root
+          paths.projectRootFile = "flake.nix";
+          paths.package = ./.;
+        }
+      ];
+    };
+  };
 }
