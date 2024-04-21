@@ -60,7 +60,6 @@ jobs:
         with:
           evaluation-name: ref
           hydra-url: https://hydra.alicehuston.xyz
-          milliseconds: 1
 
       - name: Print Output
         id: output
