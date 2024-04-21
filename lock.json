@@ -16,8 +16,8 @@
           "@jest/globals": "^29.7.0",
           "@types/jest": "^29.5.12",
           "@types/node": "^20.12.7",
-          "@typescript-eslint/eslint-plugin": "^7.6.0",
-          "@typescript-eslint/parser": "^7.6.0",
+          "@typescript-eslint/eslint-plugin": "^7.7.0",
+          "@typescript-eslint/parser": "^7.7.0",
           "@vercel/ncc": "^0.38.1",
           "eslint": "^8.57.0",
           "eslint-plugin-github": "^4.10.2",
@@ -7394,5 +7394,5 @@
       }
     }
   },
-  "invalidationHash": "2068665c7df39a9f8b00945c4fbc8d8303eed03549fc1fb39b7faac3187ff34a"
+  "invalidationHash": "bb1f4e520eaae1890eb0e8a06919295c782a611362514a1c57eb1d226fe42ba0"
 }
