@@ -7,7 +7,7 @@ import { wait } from './wait'
  */
 export async function run(): Promise<void> {
   try {
-    const ms: string = '1000'
+    const ms = '1000'
     const evaluation_name: string = core.getInput('evaluation-name')
     const hydra_url: string = core.getInput('hydra-url')
 
