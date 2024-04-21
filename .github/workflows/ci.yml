@@ -60,7 +60,3 @@ jobs:
         with:
           evaluation-name: ref
           hydra-url: https://hydra.alicehuston.xyz
-
-      - name: Print Output
-        id: output
-        run: echo "${{ steps.test-action.outputs.time }}"
