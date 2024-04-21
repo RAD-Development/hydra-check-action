@@ -13,6 +13,7 @@
     ...
   }: let
     system = "x86_64-linux";
+    inherit (self) outputs;
   in {
     # All packages defined in ./packages/<name> are automatically added to the flake outputs
     # e.g., 'packages/hello/default.nix' becomes '.#packages.hello'
@@ -28,5 +29,8 @@
         }
       ];
     };
+
+    inherit (self) outputs;
+    hydraJobs = import ./hydra/jobs.nix { inherit inputs outputs; };
   };
 }
