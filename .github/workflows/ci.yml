@@ -58,7 +58,8 @@ jobs:
         id: test-action
         uses: ./
         with:
-          milliseconds: 2000
+          evaluation-name: ref
+          hydra-url: https://hydra.alicehuston.xyz
 
       - name: Print Output
         id: output
