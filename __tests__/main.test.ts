@@ -74,5 +74,4 @@ describe('action', () => {
     )
     expect(errorMock).not.toHaveBeenCalled()
   })
-
 })

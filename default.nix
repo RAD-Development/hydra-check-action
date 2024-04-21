@@ -19,7 +19,6 @@
 
   nodejs-granular-v3 = {
     buildScript = ''
-      npm run format:write
       npm run package
       chmod +x ./dist/index.js
       patchShebangs .
