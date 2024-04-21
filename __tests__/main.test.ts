@@ -51,14 +51,14 @@ describe('action', () => {
 
     // Verify that all of the core library functions were called correctly
     expect(debugMock).toHaveBeenNthCalledWith(1, 'Waiting 1000 milliseconds ...')
-    expect(debugMock).toHaveBeenNthCalledWith(1, 'evaluation-name: ref ...')
-    expect(debugMock).toHaveBeenNthCalledWith(1, 'hydra-url: https://hydra.alicehuston.xyz ...')
+    expect(debugMock).toHaveBeenNthCalledWith(2, 'evaluation-name: ref ...')
+    expect(debugMock).toHaveBeenNthCalledWith(3, 'hydra-url: https://hydra.alicehuston.xyz ...')
     expect(debugMock).toHaveBeenNthCalledWith(
-      2,
+      4,
       expect.stringMatching(timeRegex)
     )
     expect(debugMock).toHaveBeenNthCalledWith(
-      3,
+      5,
       expect.stringMatching(timeRegex)
     )
     expect(setOutputMock).toHaveBeenNthCalledWith(
