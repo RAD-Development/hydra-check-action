@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    dream2nix.modules.dream2nix.nodejs-devshell-v3
     dream2nix.modules.dream2nix.nodejs-package-json-v3
     dream2nix.modules.dream2nix.nodejs-granular-v3
   ];
@@ -14,7 +15,11 @@
       (nixpkgs)
       gnugrep
       stdenv
+      rsync
+      treefmt
+      nixfmt-rfc-style
       ;
+      inherit (nixpkgs.nodePackages) prettier;
   };
 
   nodejs-granular-v3 = {
@@ -23,6 +28,10 @@
       chmod +x ./dist/index.js
       patchShebangs .
     '';
+  };
+
+  nodejs-package-lock-v3 = {
+    packageLockFile = "${config.mkDerivation.src}/package-lock.json";
   };
 
   name = lib.mkForce "typescript-action";
