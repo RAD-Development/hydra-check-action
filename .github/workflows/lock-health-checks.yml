@@ -1,0 +1,17 @@
+name: 'Check flake.lock'
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  merge_group:
+
+jobs:
+  health-check:
+    name: 'Check health of `flake.lock`'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/flake-checker-action@main
+        with:
+          fail-mode: true
