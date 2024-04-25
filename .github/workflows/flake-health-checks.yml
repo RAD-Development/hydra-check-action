@@ -1,0 +1,20 @@
+name: 'Check Nix flake'
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+  merge_group:
+
+jobs:
+  health-check:
+    name: 'Perform Nix flake checks'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+    steps:
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: actions/checkout@v4
+      - run: nix flake check
