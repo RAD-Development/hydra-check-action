@@ -23,6 +23,42 @@ jobs:
           pr-labels: | # Labels to be set on the PR
             dependencies
             automated
+          pr-body: |
+            Automated changes by the [update-flake-lock](https://github.com/DeterminateSystems/update-flake-lock) GitHub Action.
+
+            ```
+            {{ env.GIT_COMMIT_MESSAGE }}
+            ```
+
+            ### Running GitHub Actions on this PR
+
+            GitHub Actions will not run workflows on pull requests which are opened by a GitHub Action.
+
+            To run GitHub Actions workflows on this PR, run:
+
+            ```sh
+            git branch -D update_flake_lock_action
+            git fetch origin
+            git checkout update_flake_lock_action
+            git commit --amend --no-edit
+            git push origin update_flake_lock_action --force-with-lease
+            ```
+
+            ### Lock-related failures
+
+            This may require refreshing the package lock file (lock.json).
+
+            To update the lock file, run:
+            ```sh
+            git branch -D update_flake_lock_action
+            git fetch origin
+            git checkout update_flake_lock_action
+            nix run .#default.lock
+            git add lock.json
+            git commit -m "Update lock.json"
+            git push origin update_flake_lock_action
+            ```
+
 permissions:
   pull-requests: write
   contents: write
