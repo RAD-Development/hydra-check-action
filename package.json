@@ -34,7 +34,7 @@
     "package:watch": "npm run package -- --watch",
     "test": "jest",
     "test:coverage": "jest --coverage --pass-with-no-tests",
-    "all": "npm run format:write && npm run lint && npm run test && npm run coverage-badge && npm run package"
+    "all": "npm run format:write && npm run lint && npm run test && npm run test:coverage && npm run package"
   },
   "license": "MIT",
   "jest": {
