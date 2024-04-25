@@ -15,3 +15,5 @@ jobs:
       - uses: DeterminateSystems/flake-checker-action@main
         with:
           fail-mode: true
+
+permissions: read-all
