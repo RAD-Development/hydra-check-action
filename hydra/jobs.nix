@@ -5,5 +5,5 @@ let
   generate = arg: builtins.mapAttrs arg (builtins.intersectAttrs systems inputs.nixpkgs.legacyPackages);
 in
 {
-  packages = outputs.packages;
+  packages = outputs.defaultPackage;
 }
