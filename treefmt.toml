@@ -2,7 +2,7 @@
 
 [global]
 # Glob patterns of files to exclude
-excludes = [ ".git/" ]
+excludes = [ ".git/", "dist/" ]
 
 
 [formatter.nixfmt]
@@ -15,3 +15,4 @@ includes = [ "*.nix" ]
 
 [formatter.prettier]
 command = "prettier"
+includes = [ "*.jsx","*.tsx","*.ts","*.md" ]
