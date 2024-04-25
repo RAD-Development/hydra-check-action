@@ -18,3 +18,5 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: actions/checkout@v4
       - run: nix flake check
+
+permissions: read-all
