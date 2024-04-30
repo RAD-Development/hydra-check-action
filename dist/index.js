@@ -28462,7 +28462,7 @@ async function run() {
         const hydra_project = core.getInput('hydra-project');
         const hydra_url = core.getInput('hydra-url');
         const hydra_axios = axios_1.default.create({
-            baseURL: `${hydra_url}/${hydra_project}`,
+            baseURL: `${hydra_url}/project/${hydra_project}`,
             headers: { Accept: 'application/json' }
         });
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
