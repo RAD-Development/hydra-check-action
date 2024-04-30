@@ -58,5 +58,6 @@ jobs:
         id: test-action
         uses: ./
         with:
-          evaluation-name: ref
+          evaluation-name: branch-main
+          hydra-project: nix-dotfiles-build
           hydra-url: https://hydra.alicehuston.xyz
