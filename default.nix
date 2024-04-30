@@ -11,16 +11,13 @@
     dream2nix.modules.dream2nix.nodejs-granular-v3
   ];
 
-  deps =
-    { nixpkgs, ... }:
-    {
-      inherit (nixpkgs)
-        gnugrep
-        stdenv
-        rsync
-        treefmt
-        nixfmt-rfc-style
-        ;
+  deps = {nixpkgs, ...}: {
+    inherit
+      (nixpkgs)
+      gnugrep
+      stdenv
+      rsync
+      ;
       inherit (nixpkgs.nodePackages) prettier;
     };
 
