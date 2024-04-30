@@ -13,7 +13,7 @@ export async function run(): Promise<void> {
     const hydra_project: string = core.getInput('hydra-project')
     const hydra_url: string = core.getInput('hydra-url')
     const hydra_axios = axios.create({
-      baseURL: `${hydra_url}/${hydra_project}`,
+      baseURL: `${hydra_url}/project/${hydra_project}`,
       headers: { Accept: 'application/json' }
     })
 
