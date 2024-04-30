@@ -28465,6 +28465,7 @@ async function run() {
             baseURL: `${hydra_url}/project/${hydra_project}`,
             headers: { Accept: 'application/json' }
         });
+        core.debug(String(hydra_axios));
         // Debug logs are only output if the `ACTIONS_STEP_DEBUG` secret is true
         core.debug(`Waiting ${ms} milliseconds ...`);
         core.debug(`evaluation-name: ${evaluation_name} ...`);
