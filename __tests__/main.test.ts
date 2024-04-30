@@ -56,15 +56,16 @@ describe('action', () => {
       1,
       'Waiting 1000 milliseconds ...'
     )
-    expect(debugMock).toHaveBeenNthCalledWith(2, 'evaluation-name: branch-main ...')
+    expect(debugMock).toHaveBeenNthCalledWith(
+      2,
+      'evaluation-name: branch-main ...'
+    )
     expect(debugMock).toHaveBeenNthCalledWith(
       3,
 
       'hydra-url: https://hydra.alicehuston.xyz ...'
     )
-    expect(debugMock).toHaveBeenNthCalledWith(
-      4,''
-    )
+    expect(debugMock).toHaveBeenNthCalledWith(4, '')
     expect(debugMock).toHaveBeenNthCalledWith(
       4,
       expect.stringMatching(timeRegex)
