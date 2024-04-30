@@ -15,7 +15,10 @@ inputs:
       branch (github.ref_name)'
     required: true
   hydra-url:
-    description: 'Base URL for Hydra API'
+    description: 'Base URL for Hydra API (ex. https://hydra.nixos.org)'
+    required: true
+  hydra-project:
+    description: 'Project to check evaluations for'
     required: true
 
 runs:

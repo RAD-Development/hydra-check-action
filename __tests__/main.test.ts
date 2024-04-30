@@ -38,9 +38,11 @@ describe('action', () => {
     getInputMock.mockImplementation(name => {
       switch (name) {
         case 'evaluation-name':
-          return 'ref'
+          return 'branch-main'
         case 'hydra-url':
           return 'https://hydra.alicehuston.xyz'
+        case 'hydra-project':
+          return 'nix-dotfiles-build'
         default:
           return ''
       }
@@ -54,10 +56,14 @@ describe('action', () => {
       1,
       'Waiting 1000 milliseconds ...'
     )
-    expect(debugMock).toHaveBeenNthCalledWith(2, 'evaluation-name: ref ...')
+    expect(debugMock).toHaveBeenNthCalledWith(2, 'evaluation-name: branch-main ...')
     expect(debugMock).toHaveBeenNthCalledWith(
       3,
+
       'hydra-url: https://hydra.alicehuston.xyz ...'
+    )
+    expect(debugMock).toHaveBeenNthCalledWith(
+      4,''
     )
     expect(debugMock).toHaveBeenNthCalledWith(
       4,
